@@ -1,4 +1,4 @@
-# Deion Jose Tulcidas — Cloud & DevOps Portfolio
+Cloud & DevOps Portfolio
 
 Welcome to my personal portfolio website repository! This site is where I showcase the projects I've built, my experience with cloud technologies, and my approach to solving real-world problems using AWS and DevOps practices.  
 
