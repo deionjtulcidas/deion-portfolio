@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Healthcare Appointment Project — Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <div class="brand">Deion J Tulcidas</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="multi-tier-overview.html">Healthcare App</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero card">
+      <div>
+        <h1>Technical Deep Dive</h1>
+        <p>Architecture, workflows, and AWS service integration for the Healthcare Appointment Booking System.</p>
+      </div>
+    </section>
+
+    <section id="architecture" class="card">
+      <h2 class="section-title">Architecture</h2>
+      <p>
+        The system uses a **highly available cloud architecture**:
+      </p>
+      <ul>
+        <li>Patients access the app through a **public-facing ALB**.</li>
+        <li>**Flask backend** runs on **EC2 instances** in private subnets, handling CRUD operations for appointments.</li>
+        <li>**RDS (Postgres/MySQL) Multi-AZ** stores patient and doctor data securely.</li>
+        <li>**NAT Gateway** allows private instances to pull updates and connect to SSM for management.</li>
+        <li>**CloudWatch** monitors logs, metrics, and triggers alarms for errors.</li>
+      </ul>
+
+      <p>Optional: Include a diagram showing ALB → EC2 (Flask) → RDS → CloudWatch.</p>
+    </section>
+
+    <section id="features" class="card">
+      <h2 class="section-title">Features & Highlights</h2>
+      <ul>
+        <li>Secure **IAM least-privilege roles** for EC2, RDS, and ALB.</li>
+        <li>**Auto Scaling EC2 instances** for high availability.</li>
+        <li>**Multi-AZ RDS** for database resiliency.</li>
+        <li>Frontend is **responsive HTML/Bootstrap**, allowing patients to book, cancel, or reschedule appointments.</li>
+        <li>Deployed using **Infrastructure-as-Code** (Terraform/CloudFormation optional).</li>
+      </ul>
+    </section>
+
+    <section id="code" class="card">
+      <h2 class="section-title">Code & Demo</h2>
+      <p>View the full repository and backend examples:</p>
+      <a href="https://github.com/DJTAWS/HealthcareAppointmentApp" target="_blank" class="tag">GitHub Repo</a>
+      <p style="margin-top:12px;"><a href="multi-overview.html" class="cta">Back to Overview</a></p>
+    </section>
+
+    <footer class="footer">
+      <div>© <span id="year"></span> Deion. Deployed on AWS S3 + CloudFront.</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").innerText = new Date().getFullYear();
+  </script>
+</body>
+</html>
