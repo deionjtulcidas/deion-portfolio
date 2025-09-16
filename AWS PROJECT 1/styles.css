@@ -1,8 +1,4 @@
-/* =========================
-   Enhanced AWS-style Portfolio CSS
-========================= */
 
-/* ===== Variables ===== */
 :root {
   --bg-dark: #232f3e;
   --bg-card: #1f2937;
@@ -15,7 +11,6 @@
   --button-text: #042f2e;
 }
 
-/* ===== Global Styles ===== */
 * {
   box-sizing: border-box;
   transition: all 0.3s ease;
@@ -40,7 +35,6 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* ===== Links ===== */
 a {
   color: var(--accent);
   text-decoration: none;
@@ -49,14 +43,12 @@ a:hover {
   color: var(--accent-hover);
 }
 
-/* ===== Main Container ===== */
 .container {
   max-width: 960px;
   margin: 0 auto;
   padding: 30px;
 }
 
-/* ===== Nav ===== */
 nav {
   display: flex;
   justify-content: space-between;
@@ -87,7 +79,6 @@ nav ul li a:hover {
   transform: scale(1.05);
 }
 
-/* ===== Hero Section ===== */
 .hero {
   display: grid;
   gap: 15px;
@@ -104,7 +95,6 @@ nav ul li a:hover {
   animation: fadeIn 1.2s ease forwards;
 }
 
-/* ===== Cards ===== */
 .card {
   background: rgba(255,255,255,0.02);
   border: 1px solid rgba(255,255,255,0.06);
@@ -117,14 +107,12 @@ nav ul li a:hover {
   box-shadow: 0 12px 25px rgba(0,0,0,0.4);
 }
 
-/* ===== Grid ===== */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 15px;
 }
 
-/* ===== Section Titles ===== */
 .section-title {
   margin: 35px 0 15px;
   font-size: 22px;
@@ -133,7 +121,6 @@ nav ul li a:hover {
   padding-bottom: 4px;
 }
 
-/* ===== Footer ===== */
 .footer {
   color: var(--text-muted);
   font-size: 14px;
@@ -142,7 +129,6 @@ nav ul li a:hover {
   text-align: center;
 }
 
-/* ===== Badge ===== */
 .badge {
   font-size: 12px;
   padding: 5px 10px;
@@ -156,7 +142,6 @@ nav ul li a:hover {
   transform: scale(1.1);
 }
 
-/* ===== Buttons ===== */
 button.cta {
   background: var(--accent);
   color: var(--button-text);
@@ -171,7 +156,6 @@ button.cta:hover {
   transform: translateY(-3px) scale(1.05);
 }
 
-/* ===== Social Tags ===== */
 .socials {
   display: flex;
   gap: 10px;
@@ -192,7 +176,6 @@ button.cta:hover {
   color: var(--text-main);
 }
 
-/* ===== Animations ===== */
 @keyframes fadeDown {
   0% { opacity: 0; transform: translateY(-30px); }
   100% { opacity: 1; transform: translateY(0); }
