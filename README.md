@@ -30,13 +30,13 @@ My portfolio and projects are built with a mix of cloud and traditional technolo
 ---
 
 ## How Deployment Works
-The website is set up with CI/CD so that whenever I push changes to the `main` branch:  
+The website is set up with CI/CD so that whenever I push changes to the main branch:  
 1. GitHub Actions automatically syncs the code to the S3 bucket.  
 2. CloudFront cache is invalidated, so visitors always see the latest version instantly.  
 
-This setup ensures my portfolio is always up-to-date, reproducible, and follows real-world DevOps practices — the same processes I use in professional projects.  
+This setup ensures my portfolio is always up-to-date, reproducible, and follows real-world DevOps practices the same processes I use in professional projects.  
 
-## Contact
+## Author
 I’m always open to connecting! Reach me via email at [DJT61@pitt.edu](mailto:DJT61@pitt.edu) or through LinkedIn: [Deion Tulcidas](https://www.linkedin.com/in/deion-tulcidas-5a52a6200/).  
 
 ---
