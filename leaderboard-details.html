@@ -23,21 +23,6 @@
       </div>
     </section>
 
-    <section id="architecture" class="card">
-      <h2 class="section-title">Architecture</h2>
-      <p>
-        The system uses an **event-driven serverless/cloud architecture**:
-      </p>
-      <ul>
-        <li>Player submits a score → triggers **API Gateway** endpoint.</li>
-        <li>**Lambda function** validates and processes the score, storing it in **DynamoDB**.</li>
-        <li>Optional **WebSocket API** updates the live leaderboard in real-time.</li>
-        <li>**SNS** sends notifications to admins for top scores or anomalies.</li>
-        <li>**CloudWatch** monitors Lambda, API Gateway, and DynamoDB metrics and triggers alarms.</li>
-      </ul>
-      <p>Optional: Include a diagram showing API Gateway → Lambda → DynamoDB → WebSocket/SNS → CloudWatch.</p>
-    </section>
-
  <section id="architecture" class="card">
   <h2 class="section-title">Architecture</h2>
   <p>
@@ -74,4 +59,5 @@
   </script>
 </body>
 </html>
+
 
