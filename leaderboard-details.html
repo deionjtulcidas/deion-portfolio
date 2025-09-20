@@ -38,17 +38,24 @@
       <p>Optional: Include a diagram showing API Gateway → Lambda → DynamoDB → WebSocket/SNS → CloudWatch.</p>
     </section>
 
-    <section id="features" class="card">
-      <h2 class="section-title">Features & Highlights</h2>
-      <ul>
-        <li>Real-time leaderboard updates using **WebSocket API** (optional).</li>
-        <li>Player authentication and stats tracking with **Cognito** or minimal IAM roles.</li>
-        <li>Secure **IAM least-privilege roles** for Lambda, DynamoDB, and SNS.</li>
-        <li>**CloudWatch dashboards** and alarms for observability and reliability.</li>
-        <li>Frontend is responsive and mobile-friendly using **HTML/CSS/JS** (React optional).</li>
-        <li>Deployed using **Infrastructure-as-Code** via Terraform or CloudFormation.</li>
-      </ul>
-    </section>
+ <section id="architecture" class="card">
+  <h2 class="section-title">Architecture</h2>
+  <p>
+    The leaderboard is built on a fully serverless architecture designed for scalability and real-time updates.
+    Each part of the system has a clear role in handling requests, storing data, and pushing updates back to players.
+  </p>
+  <ul>
+    <li>When a player submits a score, the request is sent to an API Gateway endpoint.</li>
+    <li>The request triggers an AWS Lambda function, which validates the input and writes the score to Amazon DynamoDB.</li>
+    <li>A Global Secondary Index (GSI) on DynamoDB allows efficient queries for top scores.</li>
+    <li>For real-time gameplay, a WebSocket API keeps players connected and receives updates as soon as new scores arrive.</li>
+    <li>DynamoDB Streams capture new writes and trigger a broadcast Lambda that pushes leaderboard updates to all connected clients.</li>
+    <li>Amazon CloudWatch is used to monitor logs, metrics, and set alarms to ensure reliability and performance.</li>
+  </ul>
+  <p>
+    This event-driven design means the system scales automatically with traffic and avoids the need for managing servers.
+  </p>
+</section>
 
     <section id="code" class="card">
       <h2 class="section-title">Code & Demo</h2>
@@ -67,3 +74,4 @@
   </script>
 </body>
 </html>
+
