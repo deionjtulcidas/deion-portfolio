@@ -24,31 +24,31 @@
     </section>
 
     <section id="architecture" class="card">
-      <h2 class="section-title">Architecture</h2>
-      <p>
-        The system uses an **event-driven serverless architecture**:
-      </p>
+  <h2 class="section-title">Architecture</h2>
+  <p>
+    The application follows an event-driven, serverless design that connects multiple AWS services:
+  </p>
+  <ul>
+    <li>User submits the contact form → triggers API Gateway.</li>
+    <li>Lambda function validates the data and:
       <ul>
-        <li>User submits the contact form → triggers **API Gateway**.</li>
-        <li>**Lambda function** processes the input and stores it in **DynamoDB**.</li>
-        <li>**SNS** sends an email notification to the owner.</li>
-        <li>**CloudWatch** monitors metrics, logs, and triggers alarms for errors.</li>
+        <li>Stores the submission in DynamoDB.</li>
+        <li>Saves a JSON copy in S3 for analytics.</li>
+        <li>Publishes an alert to SNS.</li>
+        <li>Emits custom metrics to CloudWatch.</li>
       </ul>
+    </li>
+    <li>SNS notifies the owner when new submissions are received.</li>
+    <li>CloudWatch captures logs, tracks metrics, and monitors system health.</li>
+  </ul>
+      
+  <p>
+    Optional: Add a diagram illustrating the flow:
+    <em>API Gateway → Lambda → DynamoDB/S3 → SNS → CloudWatch</em>.
+  </p>
+</section>
 
-      <p>Optional: Include a diagram showing API Gateway → Lambda → DynamoDB → SNS → CloudWatch.</p>
-    </section>
-
-    <section id="features" class="card">
-      <h2 class="section-title">Features & Highlights</h2>
-      <ul>
-        <li>Secure **IAM least-privilege roles** for Lambda, DynamoDB, and SNS.</li>
-        <li>**CloudWatch dashboards** and alarms for observability.</li>
-        <li>**Event-driven notifications** using SNS email.</li>
-        <li>Frontend is responsive with a **thank-you confirmation page**.</li>
-        <li>Deployed using **Infrastructure-as-Code** (CloudFormation/Terraform).</li>
-      </ul>
-    </section>
-
+    
     <section id="code" class="card">
       <h2 class="section-title">Code & Demo</h2>
       <p>View the full repository and Lambda function examples:</p>
@@ -67,4 +67,5 @@
 </body>
 
 </html>
+
 
