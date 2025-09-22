@@ -22,38 +22,27 @@
         <p>Architecture, workflows, and AWS service integration for the Healthcare Appointment Booking System.</p>
       </div>
     </section>
+    
+<section id="architecture" class="card">
+  <h2 class="section-title">Architecture</h2>
+  <p>
+    The system follows a three-tier cloud architecture on AWS:
+  </p>
+  <ul>
+    <li>Patients access the app through a frontend hosted on S3 and delivered globally with <strong>CloudFront</strong>.</li>
+    <li>A Node.js/Express backend runs on a t2.micro EC2 instance inside a VPC, handling appointment booking and management.</li>
+    <li>Data is stored in DynamoDB Free Tier (or SQLite on EC2 for testing), simulating the persistence layer.</li>
+    <li>IAM roles and security groups enforce least-privilege access and protect resources.</li>
+    <li><strong>CloudWatch</strong> collects logs and metrics, providing monitoring and visibility into the system.</li>
+  </ul>
 
-    <section id="architecture" class="card">
-      <h2 class="section-title">Architecture</h2>
-      <p>
-        The system uses a **highly available cloud architecture**:
-      </p>
-      <ul>
-        <li>Patients access the app through a **public-facing ALB**.</li>
-        <li>**Flask backend** runs on **EC2 instances** in private subnets, handling CRUD operations for appointments.</li>
-        <li>**RDS (Postgres/MySQL) Multi-AZ** stores patient and doctor data securely.</li>
-        <li>**NAT Gateway** allows private instances to pull updates and connect to SSM for management.</li>
-        <li>**CloudWatch** monitors logs, metrics, and triggers alarms for errors.</li>
-      </ul>
-
-      <p>Optional: Include a diagram showing ALB → EC2 (Flask) → RDS → CloudWatch.</p>
-    </section>
-
-    <section id="features" class="card">
-      <h2 class="section-title">Features & Highlights</h2>
-      <ul>
-        <li>Secure **IAM least-privilege roles** for EC2, RDS, and ALB.</li>
-        <li>**Auto Scaling EC2 instances** for high availability.</li>
-        <li>**Multi-AZ RDS** for database resiliency.</li>
-        <li>Frontend is **responsive HTML/Bootstrap**, allowing patients to book, cancel, or reschedule appointments.</li>
-        <li>Deployed using **Infrastructure-as-Code** (Terraform/CloudFormation optional).</li>
-      </ul>
-    </section>
-
+  <p>Optional: Include a diagram showing S3 → CloudFront → EC2 (API) → DynamoDB → CloudWatch.</p>
+</section>
+    
     <section id="code" class="card">
       <h2 class="section-title">Code & Demo</h2>
       <p>View the full repository and backend examples:</p>
-      <a href="https://github.com/DJTAWS/HealthcareAppointmentApp" target="_blank" class="tag">GitHub Repo</a>
+      <a href="https://github.com/DJT6/HealthcareAppointmentApp" target="_blank" class="tag">GitHub Repository</a>
       <p style="margin-top:12px;"><a href="multi-overview.html" class="cta">Back to Overview</a></p>
     </section>
 
@@ -67,3 +56,4 @@
   </script>
 </body>
 </html>
+
