@@ -30,20 +30,19 @@
     <section id="overview" class="card">
       <h2 class="section-title">Project Overview</h2>
       <p>
-        The Healthcare Appointment Booking System is a secure, highly available cloud-based application that allows patients to book, cancel, and manage appointments with doctors. The backend is implemented with Flask running on Auto Scaling EC2 instances in private subnets behind an Application Load Balancer (ALB), while the database uses Amazon RDS (Postgres/MySQL) Multi-AZ for high availability and automated backups. The frontend is served via S3 + CloudFront for fast, global access, and security is enforced through IAM least-privilege roles, private networking, and encrypted data in transit and at rest, making the system HIPAA-ready. Operational excellence is ensured with CloudWatch logs, metrics, and alarms, while SSM Session Manager provides secure access to private instances without public IPs. The infrastructure is automated using Terraform or CloudFormation, and CI/CD pipelines enable safe and fast deployment. Production KPIs include 99.95% uptime, sub-200ms latency under moderate load, and automatic recovery of unhealthy instances, making the system reliable, scalable, and secure for real-world healthcare use.
+        The Healthcare Appointment Booking System is a cloud-based web application that allows patients to book, cancel, and manage appointments with doctors. The backend runs on a single EC2 instance in a VPC, with application logs and metrics captured in CloudWatch. Data is stored using DynamoDB free tier (or SQLite for demo purposes), keeping costs low while maintaining a realistic multi-tier structure. The frontend is delivered through S3 and CloudFront for fast global access. Security is managed with IAM role-based access, security groups, and encryption of data in transit and at rest. Infrastructure is organized into public and private subnets to reflect real-world best practices, even though some services are simplified for free-tier usage. CI/CD is handled with a lightweight pipeline for fast updates, and the system design mirrors enterprise practices such as load balancing, auto scaling, and RDS Multi-AZ, which can be adopted in production. The demo emphasizes cost optimization while still demonstrating how reliability, scalability, and security are achieved in a modern cloud environment.
       </p>
 
 <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:10px;">
-  <span class="tag">AWS EC2</span>
+  <span class="tag">EC2</span>
   <span class="tag">Application Load Balancer (ALB)</span>
-  <span class="tag">Amazon RDS (Postgres/MySQL)</span>
-  <span class="tag">VPC & Networking</span>
-  <span class="tag">NAT Gateway</span>
+  <span class="tag">DynamoDB</span>
+  <span class="tag">VPC</span>
   <span class="tag">IAM</span>
   <span class="tag">CloudWatch</span>
-  <span class="tag">SSM Session Manager</span>
-  <span class="tag">Flask (Python)</span>
-  <span class="tag">HTML / Bootstrap</span>
+  <span class="tag">S3</span>
+  <span class="tag">Nodejs</span>
+  <span class="tag">HTML</span>
 </div>
 
 <div style="margin-top:12px;">
@@ -60,4 +59,5 @@
     document.getElementById("year").innerText = new Date().getFullYear();
   </script>
 </body>
+
 </html>
