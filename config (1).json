@@ -6,15 +6,6 @@
   "headline": "Building reliable, secure, and automated cloud systems.",
   "subheadline": "AWS \u2022 S3 \u2022 CloudFront \u2022 Terraform/CloudFormation \u2022 GitHub Actions \u2022 Monitoring",
   "email": "DJT61@PITT.EDU",
-  "socials": [
-    {
-      "label": "GitHub",
-      "url": "https://github.com/yourhandle"
-    },
-    {
-      "label": "LinkedIn",
-      "url": "https://www.linkedin.com/in/yourhandle"
-    }
   ],
   "skills": [
     "AWS",
