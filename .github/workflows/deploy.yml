@@ -27,7 +27,7 @@ jobs:
             --exclude ".git/*" \
             --exact-timestamps
 
-          aws s3 cp styles.css s3://${{ secrets.S3_BUCKET_NAME }}/styles.css \
+          aws s3 cp styles.css s3://${{ secrets.S3_BUCKET_NAME }}/styles.v2.css \
             --cache-control "max-age=60, must-revalidate" \
             --content-type "text/css"
 
