@@ -1,16 +1,16 @@
 :root {
-  --bg-dark: #1a1f2e;
-  --bg-gradient-1: #232f3e;
-  --bg-gradient-2: #2c3e50;
-  --bg-gradient-3: #1a202c;
-  --text-main: #ffffff;
-  --text-muted: #cbd5e1;
-  --accent: #ff9900;
-  --accent-hover: #f59e0b;
-  --button-text: #0f172a;
-  --glass: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  --bg-dark: #0d1117;
+  --bg-gradient-1: #111827;
+  --bg-gradient-2: #1e293b;
+  --bg-gradient-3: #0f172a;
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+  --accent: #3b82f6; 
+  --accent-hover: #2563eb;
+  --button-text: #ffffff;
+  --glass: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 * {
@@ -21,21 +21,19 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
   background: linear-gradient(
     270deg,
     var(--bg-gradient-1),
-    #2c3f5a,
     var(--bg-gradient-2),
     var(--bg-gradient-3)
   );
   background-size: 600% 600%;
-  animation: bganim 35s ease infinite;
+  animation: bganim 40s ease infinite;
   color: var(--text-main);
   line-height: 1.6;
 }
 
-/* Background Animation */
 @keyframes bganim {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -51,110 +49,113 @@ a:hover {
 }
 
 .container {
-  max-width: 1080px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 30px 20px;
+  padding: 40px 24px;
 }
 
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 0;
+  padding: 22px 0;
 }
 nav .brand {
   font-weight: 700;
-  font-size: 1.5rem;
-  color: var(--accent);
-  letter-spacing: 0.5px;
+  font-size: 1.6rem;
+  color: var(--text-main);
+  letter-spacing: -0.5px;
 }
 nav ul {
   list-style: none;
   display: flex;
-  gap: 14px;
+  gap: 18px;
   margin: 0;
   padding: 0;
 }
 nav ul li a {
-  color: var(--accent);
+  color: var(--text-main);
   padding: 6px 16px;
-  border: 1.5px solid var(--accent);
-  border-radius: 10px;
+  border-radius: 8px;
   font-weight: 500;
+  opacity: 0.85;
 }
 nav ul li a:hover {
-  background: var(--accent);
-  color: var(--button-text);
-  transform: scale(1.07);
+  opacity: 1;
+  background: var(--glass);
+  transform: translateY(-2px);
 }
 
 .hero {
   display: grid;
-  gap: 20px;
-  padding: 60px 0;
+  gap: 24px;
+  padding: 80px 0;
   text-align: center;
 }
 .hero h1 {
-  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
   margin: 0;
   font-weight: 800;
+  letter-spacing: -1px;
   animation: fadeDown 1s ease forwards;
 }
 .hero p {
   color: var(--text-muted);
-  font-size: 1.1rem;
-  max-width: 700px;
+  font-size: 1.15rem;
+  max-width: 680px;
   margin: 0 auto;
   animation: fadeIn 1.2s ease forwards;
 }
 
 .card {
   background: var(--glass);
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(18px);
   border: 1px solid var(--glass-border);
-  border-radius: 18px;
-  padding: 22px;
+  border-radius: 16px;
+  padding: 28px;
   box-shadow: var(--shadow);
 }
 .card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.55);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 22px;
 }
 
 .section-title {
-  margin: 40px 0 20px;
-  font-size: 1.4rem;
+  margin: 50px 0 20px;
+  font-size: 1.5rem;
   font-weight: 600;
-  border-bottom: 2px solid var(--accent);
-  padding-bottom: 5px;
+  color: var(--text-main);
+  letter-spacing: -0.5px;
   display: inline-block;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent);
 }
 
 .footer {
   color: var(--text-muted);
   font-size: 14px;
-  padding: 35px 0;
+  padding: 40px 0;
   border-top: 1px solid var(--glass-border);
   text-align: center;
 }
 
 .badge {
-  font-size: 13px;
-  padding: 6px 12px;
+  font-size: 12px;
+  padding: 5px 12px;
   border-radius: 999px;
   border: 1px solid var(--glass-border);
   color: var(--accent);
-  background: rgba(255, 153, 0, 0.12);
+  background: rgba(59, 130, 246, 0.12);
 }
 .badge:hover {
-  background: rgba(255, 153, 0, 0.2);
-  transform: scale(1.08);
+  background: rgba(59, 130, 246, 0.18);
+  transform: scale(1.05);
 }
 
 button.cta {
@@ -162,19 +163,19 @@ button.cta {
   color: var(--button-text);
   font-weight: 600;
   border: none;
-  padding: 12px 20px;
-  border-radius: 12px;
+  padding: 14px 22px;
+  border-radius: 14px;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
 }
 button.cta:hover {
   background: var(--accent-hover);
-  transform: translateY(-4px) scale(1.05);
+  transform: translateY(-3px) scale(1.02);
 }
 
 .socials {
   display: flex;
-  gap: 12px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 .tag {
@@ -183,15 +184,14 @@ button.cta:hover {
   border: 1px solid var(--glass-border);
   border-radius: 10px;
   color: var(--text-muted);
-  background: rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.05);
 }
 .tag:hover {
-  background: rgba(255,153,0,0.15);
-  transform: scale(1.07);
+  background: rgba(59,130,246,0.15);
+  transform: scale(1.05);
   border-color: var(--accent);
   color: var(--text-main);
 }
-
 
 @keyframes fadeDown {
   0% { opacity: 0; transform: translateY(-25px); }
