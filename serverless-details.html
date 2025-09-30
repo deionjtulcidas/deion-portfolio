@@ -22,32 +22,7 @@
         <p>Architecture, workflows, and AWS service integration for the Serverless Contact Form.</p>
       </div>
     </section>
-
-    <section id="architecture" class="card">
-  <h2 class="section-title">Architecture</h2>
-  <p>
-    The application follows an event-driven, serverless design that connects multiple AWS services:
-  </p>
-  <ul>
-    <li>User submits the contact form → triggers API Gateway.</li>
-    <li>Lambda function validates the data and:
-      <ul>
-        <li>Stores the submission in DynamoDB.</li>
-        <li>Saves a JSON copy in S3 for analytics.</li>
-        <li>Publishes an alert to SNS.</li>
-        <li>Emits custom metrics to CloudWatch.</li>
-      </ul>
-    </li>
-    <li>SNS notifies the owner when new submissions are received.</li>
-    <li>CloudWatch captures logs, tracks metrics, and monitors system health.</li>
-  </ul>
-      
-  <p>
-    <em>API Gateway → Lambda → DynamoDB/S3 → SNS → CloudWatch</em>.
-  </p>
-</section>
-
-    
+ 
     <section id="code" class="card">
       <h2 class="section-title">Code & Demo</h2>
       <p>View the full repository and Lambda function examples:</p>
@@ -66,6 +41,7 @@
 </body>
 
 </html>
+
 
 
 
