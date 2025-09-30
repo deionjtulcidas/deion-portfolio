@@ -30,7 +30,7 @@
     <section id="overview" class="card">
       <h2 class="section-title">Project Overview</h2>
       <p>
-        The Healthcare Appointment Booking System is a cloud-based web application that allows patients to book, cancel, and manage appointments with doctors. The backend runs on a single EC2 instance in a VPC, with application logs and metrics captured in CloudWatch. Data is stored using DynamoDB free tier (or SQLite for demo purposes), keeping costs low while maintaining a realistic multi-tier structure. The frontend is delivered through S3 and CloudFront for fast global access. Security is managed with IAM role-based access, security groups, and encryption of data in transit and at rest. Infrastructure is organized into public and private subnets to reflect real-world best practices, even though some services are simplified for free-tier usage. CI/CD is handled with a lightweight pipeline for fast updates, and the system design mirrors enterprise practices such as load balancing, auto scaling, and RDS Multi-AZ, which can be adopted in production. The demo emphasizes cost optimization while still demonstrating how reliability, scalability, and security are achieved in a modern cloud environment.
+        The Healthcare Appointment Booking System is a cloud-based web app where patients can book, cancel, and manage appointments without conflicts or double-bookings. The frontend runs on S3 with CloudFront, while the backend is deployed on EC2 instances in an Auto Scaling Group behind an Application Load Balancer with HTTPS. Data is stored in DynamoDB with IAM least-privilege access and encryption, and the VPC is segmented into public and private subnets to reflect HIPAA-aligned security practices. CloudWatch and AWS Budgets provide monitoring and cost control, and SNS sends appointment confirmations and reminders. The system demonstrates how an EC2-based workload can be built with healthcare security principles while maintaining scalability and reliability.
       </p>
 
 <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:10px;">
@@ -61,4 +61,5 @@
 </body>
 
 </html>
+
 
