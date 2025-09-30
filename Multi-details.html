@@ -23,22 +23,6 @@
       </div>
     </section>
     
-<section id="architecture" class="card">
-  <h2 class="section-title">Architecture</h2>
-  <p>
-    The system follows a three-tier cloud architecture on AWS:
-  </p>
-  <ul>
-    <li>Patients access the app through a frontend hosted on S3 and delivered globally with <strong>CloudFront</strong>.</li>
-    <li>A Node.js/Express backend runs on a t2.micro EC2 instance inside a VPC, handling appointment booking and management.</li>
-    <li>Data is stored in DynamoDB Free Tier (or SQLite on EC2 for testing), simulating the persistence layer.</li>
-    <li>IAM roles and security groups enforce least-privilege access and protect resources.</li>
-    <li><strong>CloudWatch</strong> collects logs and metrics, providing monitoring and visibility into the system.</li>
-  </ul>
-
-  <p>S3 → CloudFront → EC2 (API) → DynamoDB → CloudWatch.</p>
-</section>
-    
     <section id="code" class="card">
       <h2 class="section-title">Code & Demo</h2>
       <p>View the full repository and backend examples:</p>
@@ -56,6 +40,7 @@
   </script>
 </body>
 </html>
+
 
 
 
