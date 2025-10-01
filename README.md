@@ -9,7 +9,7 @@ The website itself is a static site built with HTML, CSS, and JavaScript, hosted
 ## Featured Projects
 
 ### Multi-Tier Healthcare Appointment Application
-Designed and deployed a multi-tier healthcare appointment application on AWS using free-tier services (S3, CloudFront, EC2, DynamoDB). Configured VPC networking, IAM least-privilege policies, and CloudWatch monitoring, while setting up Budgets for cost control. Simulated enterprise practices such as high availability, scalability, and security within free-tier limits. Documented and resolved troubleshooting scenarios 
+Designed and deployed a healthcare appointment booking application on AWS using free-tier services (EC2, DynamoDB, Route 53). Configured a custom VPC, IAM least-privilege policies, and CloudWatch monitoring with Budgets for cost control. Set up Nginx with Let’s Encrypt SSL as a reverse proxy for a Node.js/Express API, connected to a secure frontend under a custom domain. Simulated enterprise practices like scalability, security, and high availability within free-tier limits while troubleshooting and documenting deployment issues. 
 
 ### Cloud Game Leaderboard – Real-Time Multiplayer Stats
 For this project, I built a real-time leaderboard for a multiplayer game. Players can submit scores, see live rankings, and track top performers. The app is entirely cloud-hosted and event-driven, showing off my skills with AWS Lambda, API Gateway, DynamoDB, WebSocket API, SNS, CloudWatch, and IAM. This project highlights my ability to design systems that scale efficiently while remaining secure and observable.  
