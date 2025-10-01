@@ -30,18 +30,19 @@
     <section id="overview" class="card">
       <h2 class="section-title">Project Overview</h2>
       <p>
-        The Healthcare Appointment Booking System is a cloud-based web app where patients can book, cancel, and manage appointments without conflicts or double-bookings. The frontend runs on S3 with CloudFront, while the backend is deployed on EC2 instances in an Auto Scaling Group behind an Application Load Balancer with HTTPS. Data is stored in DynamoDB with IAM least-privilege access and encryption, and the VPC is segmented into public and private subnets to reflect HIPAA-aligned security practices. CloudWatch and AWS Budgets provide monitoring and cost control, and SNS sends appointment confirmations and reminders. The system demonstrates how an EC2-based workload can be built with healthcare security principles while maintaining scalability and reliability.
+        The Healthcare Appointment Booking System is a cloud-based web app where patients can book and manage appointments online. The frontend is served through Nginx with a custom Route 53 domain and HTTPS using Let’s Encrypt. The backend is a Node.js/Express API deployed on an EC2 instance inside a custom VPC, with DynamoDB storing appointment data under IAM least-privilege access. Nginx is configured as a reverse proxy to connect the API with the frontend securely. Route 53 handles DNS, while CloudWatch and AWS Budgets provide monitoring and cost control. The system demonstrates how to deploy a multi-tier application on AWS with security, scalability, and cost optimization in mind.
       </p>
 
 <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:10px;">
   <span class="tag">EC2</span>
-  <span class="tag">Application Load Balancer (ALB)</span>
+  <span class="tag">Nginx</span>
   <span class="tag">DynamoDB</span>
   <span class="tag">VPC</span>
   <span class="tag">IAM</span>
   <span class="tag">CloudWatch</span>
   <span class="tag">S3</span>
   <span class="tag">HTML</span>
+  <span class="tag">DynamoDB</span>
 </div>
 
 <div style="margin-top:12px;">
@@ -67,6 +68,7 @@
 </body>
 
 </html>
+
 
 
 
