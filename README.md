@@ -24,7 +24,7 @@ My portfolio and projects are built with a mix of cloud and traditional technolo
 
 - AWS: S3, CloudFront, Lambda, RDS, DynamoDB, CloudWatch, IAM, SNS  
 - Programming & Frameworks: Python, Flask, HTML/CSS/JS  
-- DevOps & CI/CD: GitHub Actions, Terraform/CloudFormation (for infrastructure as code)  
+- DevOps & CI/CD: GitHub Actions 
 - Other Tools: Bootstrap for UI, event-driven architecture design, monitoring and logging  
 
 ---
