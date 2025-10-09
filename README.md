@@ -37,8 +37,4 @@ The website is set up with CI/CD so that whenever I push changes to the main bra
 This setup ensures my portfolio is always up-to-date, reproducible, and follows real-world DevOps practices the same processes I use in professional projects.  
 
 ## Author
-I’m always open to connecting! Reach me via email at [DJT61@pitt.edu](mailto:DJT61@pitt.edu) or through LinkedIn: [Deion Tulcidas](https://www.linkedin.com/in/deion-tulcidas-5a52a6200/).  
-
----
-
-This README is meant to show what I build, how I build it, and why it matters. Each project reflects hands-on experience with cloud services, security best practices, and automation that mirrors real production environments.
+I’m always open to connecting! Reach me via email at [DJT61@pitt.edu](mailto:DJT61@pitt.edu) or through LinkedIn: [Deion Tulcidas](https://www.linkedin.com/in/deion-tulcidas-5a52a6200/).
