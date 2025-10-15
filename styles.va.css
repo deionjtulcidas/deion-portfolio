@@ -45,42 +45,57 @@ a:hover {
 }
 
 .hero {
-  background: #f1f5f9;
-  border-radius: 12px;
-  padding: 80px 20px;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("pitt.jpg") center center no-repeat;
+  background-size: cover;
+  border-radius: 16px;
+  padding: 100px 20px;
   text-align: center;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+  color: var(--text-light);
+  position: relative;
+}
+
+.hero .badge {
+  background-color: var(--pitt-gold);
+  color: var(--pitt-blue);
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  margin-bottom: 15px;
 }
 
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 800;
+  color: var(--pitt-gold);
+  margin-bottom: 15px;
+}
+
+.hero .socials {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
   margin-top: 10px;
-  color: var(--pitt-blue); 
 }
 
-.badge {
-  background-color: var(--pitt-gold);
-  color: var(--pitt-blue);
-  padding: 6px 14px;
-  border-radius: 9999px;
-  font-weight: 700;
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.socials .tag {
-  background: white;
+.hero .tag {
+  background: rgba(255, 255, 255, 0.15);
   padding: 8px 16px;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  color: var(--pitt-blue);
-  border: 1px solid var(--gray-border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(6px);
   transition: all 0.2s ease;
 }
 
-.socials .tag:hover {
+.hero .tag:hover {
   background: var(--pitt-gold);
   color: var(--pitt-blue);
   border-color: var(--pitt-gold);
@@ -89,24 +104,26 @@ a:hover {
 .cta {
   background: var(--pitt-gold);
   color: var(--pitt-blue);
-  padding: 12px 24px;
+  padding: 14px 28px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   font-weight: 700;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease;
+  margin-top: 20px;
 }
 
 .cta:hover {
   background: #e8a800;
+  transform: translateY(-3px);
 }
 
 .section-title {
-  font-size: 1.75rem;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--pitt-blue);
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   text-align: center;
   position: relative;
 }
@@ -123,35 +140,36 @@ a:hover {
 
 .card {
   background: var(--card-bg);
-  padding: 20px;
-  border-radius: 10px;
+  padding: 24px;
+  border-radius: 12px;
   margin-bottom: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   border: 1px solid var(--gray-border);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
 }
 
 .grid {
   display: grid;
-  gap: 20px;
+  gap: 24px;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 .card h3 {
   color: var(--pitt-blue);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   font-weight: 600;
+  font-size: 1.25rem;
 }
 
 .card p {
   color: #475569;
   font-size: 0.95rem;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .card a {
@@ -185,11 +203,19 @@ footer.footer span {
 }
 
 @media (max-width: 768px) {
+  .hero {
+    padding: 60px 20px;
+  }
+
   .hero h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .cta {
     width: 100%;
+  }
+
+  .hero .socials {
+    flex-wrap: wrap;
   }
 }
