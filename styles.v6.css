@@ -9,22 +9,33 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  --pitt-blue: #003594;
+  --pitt-blue-dark: #00276d;
+  --pitt-gold: #ffb81c;
+  --bg: #ffffff;
+  --text-dark: #1e293b;
+  --text-light: #f8fafc;
+  --gray-border: #e2e8f0;
+  --card-bg: #ffffff;
+}
+
 body {
   font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background-color: #f8fafc;
-  color: #1e293b;
+  background-color: var(--bg);
+  color: var(--text-dark);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
 a {
-  color: #003594;
+  color: var(--pitt-blue);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: #00276d;
+  color: var(--pitt-blue-dark);
 }
 
 .container {
@@ -33,31 +44,19 @@ a:hover {
   padding: 0 20px;
 }
 
-:root {
-  --pitt-blue: #003594;
-  --pitt-blue-dark: #00276d;
-  --pitt-gold: #ffb81c;
-  --text-dark: #1e293b;
-  --text-light: #f8fafc;
-  --card-bg: #ffffff;
-  --hero-bg: linear-gradient(135deg, var(--pitt-blue), #001e5a);
-  --gray-border: #e2e8f0;
-}
-
 .hero {
-  background: var(--hero-bg);
+  background: #f1f5f9;
   border-radius: 12px;
   padding: 80px 20px;
   text-align: center;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
-  color: var(--text-light);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 }
 
 .hero h1 {
   font-size: 2.5rem;
   font-weight: 800;
   margin-top: 10px;
-  color: var(--text-light);
+  color: var(--pitt-blue); 
 }
 
 .badge {
@@ -72,12 +71,12 @@ a:hover {
 }
 
 .socials .tag {
-  background: rgba(255, 255, 255, 0.1);
+  background: white;
   padding: 8px 16px;
   border-radius: 6px;
   font-size: 0.9rem;
-  color: var(--text-light);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--pitt-blue);
+  border: 1px solid var(--gray-border);
   transition: all 0.2s ease;
 }
 
