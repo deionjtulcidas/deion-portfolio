@@ -13,57 +13,52 @@
     <h1>Projects</h1>
 
     <article>
-      <h2> Cloud-Based Appointment Management System</h2>
+      <h2>AI Log Detection and Response System</h2>
       <p>
-        A production-ready healthcare appointment booking platform built with a modern AWS multi-tier architecture. Demonstrates secure, highly available, and cost-efficient infrastructure for patient scheduling and management. Emphasizes automation, monitoring, and operational resilience.
+        This project focuses on building a cost-efficient, serverless detection pipeline capable of identifying suspicious activity in real time. Logs are streamed, processed, and analyzed with Amazon SageMaker to detect anomalies and trigger alerts or automated blocking. It’s designed for on-demand processing to minimize costs while still demonstrating strong operational automation and security monitoring. The system provides a clear example of integrating ML-driven detection with a modern cloud-native architecture.
       </p>
       <p>
-        <strong>Architecture:</strong> S3 + CloudFront (HTTPS via Route 53) • API Gateway + Lambda (Node.js) • DynamoDB (conditional writes) • Cognito (JWT Auth) • CloudWatch (logs, alarms, dashboards) • X-Ray tracing • WAF + KMS encryption • IAM least privilege • GitHub Actions CI/CD • Terraform IaC
+        Architecture: S3 (log storage) • Kinesis Firehose (streaming) • Lambda (preprocessing) • SageMaker (anomaly detection) • SNS (alerts) • WAF (response) • CloudWatch (monitoring) • GitHub Actions + Terraform
       </p>
-      <ul>
-        <li>Atomic booking with DynamoDB conditional writes (no double-booking).</li>
-        <li>End-to-end encryption, authentication, and audit logging.</li>
-        <li>Budget alarms + auto-teardown for cost control.</li>
-        <li>Designed for zero idle cost and fast recovery from common failure scenarios.</li>
-      </ul>
+      <div class="meta">
+        <a href="#" target="_blank">Code</a>
+      </div>
+    </article>
+
+    <article>
+      <h2>Cloud-Based Appointment Management System</h2>
+      <p>
+        A production-ready appointment platform built with a secure and scalable AWS stack. It includes authentication, monitoring, cost control, and automated deployments through CI/CD. The design focuses on high availability, zero idle cost, and fast recovery from common failure scenarios. This project reflects strong cloud infrastructure practices suitable for real-world use cases.
+      </p>
+      <p>
+        Architecture: S3 + CloudFront (HTTPS) • API Gateway + Lambda (Node.js) • DynamoDB (conditional writes) • Cognito (auth) • CloudWatch (logs, alarms) • WAF + KMS • GitHub Actions + Terraform
+      </p>
       <div class="meta">
         <a href="https://github.com/DJT6/HealthcareAppointmentApp" target="_blank">Code</a>
       </div>
     </article>
 
     <article>
-      <h2> Cloud Game Leaderboard</h2>
+      <h2>Cloud Game Leaderboard</h2>
       <p>
-        A fully serverless real-time leaderboard system showcasing scalable event-driven design. Players can submit scores and view rankings through a low-latency API. Designed for zero infrastructure management and optimal AWS free-tier usage.
+        A real-time serverless leaderboard that allows players to submit scores and view rankings through low-latency APIs. It integrates basic abuse detection and traffic control, ensuring stable performance without increasing costs. The architecture is optimized for scalability, cost efficiency, and simplicity, making it ideal for showcasing event-driven design and operational monitoring.
       </p>
       <p>
-        <strong>Architecture:</strong> S3 (static frontend) • API Gateway (REST + WebSocket) • Lambda (Node.js) • DynamoDB (top-N leaderboard with GSI) • CloudWatch (monitoring & alarms) • WAF (rate limiting) • GitHub Actions + Terraform
+        Architecture: S3 (static frontend) • API Gateway (REST + WebSocket) • Lambda (Node.js) • DynamoDB (top-N leaderboard with GSI) • CloudWatch (monitoring & alarms) • WAF (rate limiting) • GitHub Actions + Terraform
       </p>
-      <ul>
-        <li>Real-time leaderboard updates via WebSocket or REST polling.</li>
-        <li>Optimized GSI design for top-N queries without hot partitions.</li>
-        <li>WAF rules and throttling to prevent abuse and spam.</li>
-        <li>CI/CD one-click deploy and destroy with Terraform.</li>
-      </ul>
       <div class="meta">
         <a href="https://github.com/DJT6/CloudGameLeaderboard" target="_blank">Code</a>
       </div>
     </article>
 
     <article>
-      <h2> Serverless Contact Form Application</h2>
+      <h2>Serverless Contact Form Application</h2>
       <p>
-        A lightweight, production-grade contact form application with spam protection, encryption, and zero-cost infrastructure. Ideal for personal sites and small businesses that require reliable submission handling without overhead.
+        A lightweight contact form application designed to be simple, reliable, and cost-free to operate. It uses serverless components to process submissions, block spam, and automate data cleanup. Notifications are sent in real time, and the architecture requires no manual management, making it ideal for personal websites or small-scale business deployments.
       </p>
       <p>
-        <strong>Architecture:</strong> API Gateway → Lambda → DynamoDB (TTL cleanup) → S3 + SNS • CloudWatch • GitHub Actions (CI/CD)
+        Architecture: API Gateway → Lambda → DynamoDB (TTL cleanup) → S3 + SNS • WAF • CloudWatch • GitHub Actions + Terraform
       </p>
-      <ul>
-        <li>Fully serverless with $0 idle cost.</li>
-        <li>Spam protection with honeypot and WAF rate limits.</li>
-        <li>Automated record cleanup using DynamoDB TTL.</li>
-        <li>Real-time notifications via SNS with CloudWatch metrics and alarms.</li>
-      </ul>
       <div class="meta">
         <a href="https://github.com/DJT6/ServerlessContactForm" target="_blank">Code</a>
       </div>
@@ -75,4 +70,3 @@
   </main>
 </body>
 </html>
-
