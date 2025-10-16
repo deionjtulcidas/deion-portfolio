@@ -13,47 +13,57 @@
     <h1>Projects</h1>
 
     <article>
-      <h2>Cloud-Based Appointment Management System</h2>
+      <h2>🩺 Cloud-Based Appointment Management System</h2>
       <p>
-        A full-stack healthcare appointment booking platform demonstrating modern AWS multi-tier architecture and automation. Patients can securely book, manage, and cancel appointments via a responsive frontend, while backend operations run on AWS for high availability and scalability.
+        A production-ready healthcare appointment booking platform built with a modern AWS multi-tier architecture. Demonstrates secure, highly available, and cost-efficient infrastructure for patient scheduling and management. Emphasizes automation, monitoring, and operational resilience.
       </p>
       <p>
-        <strong>Architecture:</strong>  
-        Frontend: S3 + CloudFront (HTTPS via Route 53)  
-        Backend: EC2 + Nginx (Node.js API)  
-        Database: DynamoDB  
-        Monitoring: CloudWatch logs & alarms  
-        Security: IAM least-privilege + SSL  
-        CI/CD: GitHub Actions pipeline
+        <strong>Architecture:</strong> S3 + CloudFront (HTTPS via Route 53) • API Gateway + Lambda (Node.js) • DynamoDB (conditional writes) • Cognito (JWT Auth) • CloudWatch (logs, alarms, dashboards) • X-Ray tracing • WAF + KMS encryption • IAM least privilege • GitHub Actions CI/CD • Terraform IaC
       </p>
+      <ul>
+        <li>Atomic booking with DynamoDB conditional writes (no double-booking).</li>
+        <li>End-to-end encryption, authentication, and audit logging.</li>
+        <li>Budget alarms + auto-teardown for cost control.</li>
+        <li>Designed for zero idle cost and fast recovery from common failure scenarios.</li>
+      </ul>
       <div class="meta">
         <a href="https://github.com/DJT6/HealthcareAppointmentApp" target="_blank">Code</a>
       </div>
     </article>
 
     <article>
-      <h2>Cloud Game Leaderboard</h2>
+      <h2>🕹️ Cloud Game Leaderboard</h2>
       <p>
-        A cloud-hosted leaderboard system where players submit scores and view rankings through a web interface. Built using S3, API Gateway, Lambda, and DynamoDB to create a serverless application demonstrating real-time updates, RESTful APIs, and database integration.
+        A fully serverless real-time leaderboard system showcasing scalable event-driven design. Players can submit scores and view rankings through a low-latency API. Designed for zero infrastructure management and optimal AWS free-tier usage.
       </p>
       <p>
-        <strong>Architecture:</strong> Static frontend on S3 → API Gateway → Lambda → DynamoDB  
-        <br>Event-driven backend with CORS configuration and CloudWatch monitoring.
+        <strong>Architecture:</strong> S3 (static frontend) • API Gateway (REST + WebSocket) • Lambda (Node.js) • DynamoDB (top-N leaderboard with GSI) • CloudWatch (monitoring & alarms) • WAF (rate limiting) • GitHub Actions + Terraform
       </p>
+      <ul>
+        <li>Real-time leaderboard updates via WebSocket or REST polling.</li>
+        <li>Optimized GSI design for top-N queries without hot partitions.</li>
+        <li>WAF rules and throttling to prevent abuse and spam.</li>
+        <li>CI/CD one-click deploy and destroy with Terraform.</li>
+      </ul>
       <div class="meta">
         <a href="https://github.com/DJT6/CloudGameLeaderboard" target="_blank">Code</a>
       </div>
     </article>
 
     <article>
-      <h2>Serverless Contact Form Application</h2>
+      <h2>✉️ Serverless Contact Form Application</h2>
       <p>
-        A fully serverless contact form application built on AWS. Users can submit their name, email, and message through a responsive web form, with all submissions processed and stored using AWS managed services. Designed for scalability, low operational overhead, and real-time monitoring.
+        A lightweight, production-grade contact form application with spam protection, encryption, and zero-cost infrastructure. Ideal for personal sites and small businesses that require reliable submission handling without overhead.
       </p>
       <p>
-        <strong>Architecture:</strong> API Gateway → Lambda → DynamoDB + S3 + SNS + CloudWatch  
-        <br>Frontend hosted on S3 with CI/CD via GitHub Actions.
+        <strong>Architecture:</strong> API Gateway → Lambda → DynamoDB (TTL cleanup) → S3 + SNS • CloudWatch • GitHub Actions (CI/CD)
       </p>
+      <ul>
+        <li>Fully serverless with $0 idle cost.</li>
+        <li>Spam protection with honeypot and WAF rate limits.</li>
+        <li>Automated record cleanup using DynamoDB TTL.</li>
+        <li>Real-time notifications via SNS with CloudWatch metrics and alarms.</li>
+      </ul>
       <div class="meta">
         <a href="https://github.com/DJT6/ServerlessContactForm" target="_blank">Code</a>
       </div>
@@ -65,4 +75,3 @@
   </main>
 </body>
 </html>
-
