@@ -1,14 +1,14 @@
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background-color: #fff;
-  color: #111;
+  background-color: #ffffff;
+  color: #111111;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,9 +18,17 @@ body {
 }
 
 main {
-  max-width: 600px;
+  max-width: 650px;
   width: 100%;
   text-align: left;
+}
+
+.profile-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  margin-bottom: 1.8rem;
 }
 
 .profile {
@@ -28,31 +36,43 @@ main {
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 1.5rem;
-  display: block;
+}
+
+.pitt-logo {
+  width: 85px;
+  height: auto;
+  opacity: 0.85;
+  filter: grayscale(20%);
+  transition: all 0.3s ease;
+}
+
+.pitt-logo:hover {
+  opacity: 1;
+  filter: grayscale(0%);
 }
 
 h1 {
   font-size: 1.9rem;
   font-weight: 600;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
 }
 
 .bio {
-  line-height: 1.6;
-  color: #333;
-  margin-bottom: 1.8rem;
   font-size: 1rem;
+  color: #333333;
+  line-height: 1.6;
+  margin-bottom: 1.6rem;
 }
 
-/* ===== Links ===== */
 a {
   color: #0070f3;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 a:hover {
   text-decoration: underline;
+  color: #005ad0;
 }
 
 .links {
@@ -64,6 +84,7 @@ a:hover {
   font-size: 1.05rem;
 }
 
+/* socialsss */
 .socials {
   display: flex;
   align-items: center;
@@ -73,37 +94,36 @@ a:hover {
 }
 
 .socials a {
-  color: #111;
+  color: #111111;
 }
 
 footer {
-  margin-top: 5rem;
+  margin-top: 4rem;
   font-size: 0.85rem;
-  color: #666;
+  color: #666666;
+  text-align: center;
 }
 
-.profile-section {
-  display: flex;
-  align-items: center;
-  gap: 20px; 
-  margin-bottom: 1.5rem;
-}
+@media (max-width: 600px) {
+  .profile-row {
+    flex-direction: row;
+    gap: 12px;
+  }
 
-.profile {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-}
+  .profile {
+    width: 90px;
+    height: 90px;
+  }
 
-.pitt-logo {
-  width: 90px; 
-  height: auto;
-  opacity: 0.9;
-  transition: opacity 0.3s ease;
-}
+  .pitt-logo {
+    width: 65px;
+  }
 
-.pitt-logo:hover {
-  opacity: 1;
-}
+  h1 {
+    font-size: 1.6rem;
+  }
 
+  .bio {
+    font-size: 0.95rem;
+  }
+}
