@@ -13,13 +13,18 @@
     <h1>Projects</h1>
 
     <article>
-      <h2>Serverless Contact Form Application</h2>
+      <h2>Cloud-Based Appointment Management System</h2>
       <p>
-        A fully serverless contact form application built on AWS. Users can submit their name, email, and message through a responsive web form, with all submissions processed and stored using AWS managed services. Designed for scalability, low operational overhead, and real-time monitoring.
+        A full-stack healthcare appointment booking platform demonstrating modern AWS multi-tier architecture and automation. Patients can securely book, manage, and cancel appointments via a responsive frontend, while backend operations run on AWS for high availability and scalability.
       </p>
       <p>
-        <strong>Architecture:</strong> API Gateway → Lambda → DynamoDB + S3 + SNS + CloudWatch  
-        <br>Frontend hosted on S3 with CI/CD via GitHub Actions.
+        <strong>Architecture:</strong>  
+        Frontend: S3 + CloudFront (HTTPS via Route 53)  
+        Backend: EC2 + Nginx (Node.js API)  
+        Database: DynamoDB  
+        Monitoring: CloudWatch logs & alarms  
+        Security: IAM least-privilege + SSL  
+        CI/CD: GitHub Actions pipeline
       </p>
       <div class="meta">
         <a href="https://github.com/DJT6/deion-portfolio" target="_blank">Code</a>
@@ -41,18 +46,13 @@
     </article>
 
     <article>
-      <h2>Cloud-Based Appointment Management System</h2>
+      <h2>Serverless Contact Form Application</h2>
       <p>
-        A full-stack healthcare appointment booking platform demonstrating modern AWS multi-tier architecture and automation. Patients can securely book, manage, and cancel appointments via a responsive frontend, while backend operations run on AWS for high availability and scalability.
+        A fully serverless contact form application built on AWS. Users can submit their name, email, and message through a responsive web form, with all submissions processed and stored using AWS managed services. Designed for scalability, low operational overhead, and real-time monitoring.
       </p>
       <p>
-        <strong>Architecture:</strong>  
-        Frontend: S3 + CloudFront (HTTPS via Route 53)  
-        Backend: EC2 + Nginx (Node.js API)  
-        Database: DynamoDB  
-        Monitoring: CloudWatch logs & alarms  
-        Security: IAM least-privilege + SSL  
-        CI/CD: GitHub Actions pipeline
+        <strong>Architecture:</strong> API Gateway → Lambda → DynamoDB + S3 + SNS + CloudWatch  
+        <br>Frontend hosted on S3 with CI/CD via GitHub Actions.
       </p>
       <div class="meta">
         <a href="https://github.com/DJT6/deion-portfolio" target="_blank">Code</a>
