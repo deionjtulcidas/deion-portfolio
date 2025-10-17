@@ -13,9 +13,22 @@
     <h1>Projects</h1>
 
     <article>
+      <h2>Containerized Threat Detection & Response Platform</h2>
+      <p>
+        A scalable, containerized security detection pipeline designed to identify and respond to suspicious activity in real time with near-zero idle cost. Logs are ingested, processed, and analyzed through a lightweight Kubernetes stack, triggering alerts and automated blocking when anomalies are detected. This project showcases container orchestration, real-time security response, and cost-optimized infrastructure.
+      </p>
+      <p>
+        <strong>Architecture:</strong> S3 (log ingestion) • SQS (buffering) • EC2 (K3s Kubernetes cluster) • Docker (services) • Fluent Bit (log ingestion) • Python ML service (anomaly detection) • SNS (alerting) • WAF (response automation) • Prometheus + Grafana (monitoring) • GitHub Actions + Terraform
+      </p>
+      <div class="meta">
+        <a href="#" target="_blank">Code</a>
+      </div>
+    </article>
+
+    <article>
       <h2>AI Log Detection and Response System</h2>
       <p>
-        This project focuses on building a cost-efficient, serverless detection pipeline capable of identifying suspicious activity in real time. Logs are streamed, processed, and analyzed with Amazon SageMaker to detect anomalies and trigger alerts or automated blocking. It’s designed for on-demand processing to minimize costs while still demonstrating strong operational automation and security monitoring. The system provides a clear example of integrating ML-driven detection with a modern cloud-native architecture.
+        A fully serverless, ML-driven detection pipeline built to process and analyze security logs in real time. Leveraging SageMaker for anomaly detection, the system triggers alerts and automated blocking with no permanent infrastructure. This project highlights strong operational automation, security integration, and pay-per-use cost efficiency.
       </p>
       <p>
         <strong>Architecture:</strong> S3 (log storage) • Kinesis Firehose (streaming) • Lambda (preprocessing) • SageMaker (anomaly detection) • SNS (alerts) • WAF (response) • CloudWatch (monitoring) • GitHub Actions + Terraform
@@ -28,7 +41,7 @@
     <article>
       <h2>Cloud-Based Appointment Management System</h2>
       <p>
-        A production-ready appointment platform built with a secure and scalable AWS stack. It includes authentication, monitoring, cost control, and automated deployments through CI/CD. The design focuses on high availability, zero idle cost, and fast recovery from common failure scenarios. This project reflects strong cloud infrastructure practices suitable for real-world use cases.
+        A production-grade appointment booking platform showcasing a secure and scalable AWS stack. It integrates authentication, monitoring, cost control, and automated CI/CD deployments. Designed for high availability, zero idle cost, and fast recovery, it reflects best practices for real-world, business-critical applications.
       </p>
       <p>
         <strong>Architecture:</strong> S3 + CloudFront (HTTPS) • API Gateway + Lambda (Node.js) • DynamoDB (conditional writes) • Cognito (auth) • CloudWatch (logs, alarms) • WAF + KMS • GitHub Actions + Terraform
@@ -38,29 +51,17 @@
       </div>
     </article>
 
+
     <article>
       <h2>Cloud Game Leaderboard</h2>
       <p>
-        A real-time serverless leaderboard that allows players to submit scores and view rankings through low-latency APIs. It integrates basic abuse detection and traffic control, ensuring stable performance without increasing costs. The architecture is optimized for scalability, cost efficiency, and simplicity, making it ideal for showcasing event-driven design and operational monitoring.
+        A real-time serverless leaderboard that allows players to submit scores and view rankings through low-latency APIs. It integrates abuse detection and traffic control, ensuring stable performance at scale. This project emphasizes event-driven architecture, DynamoDB optimization, and operational monitoring.
       </p>
       <p>
-        <strong>Architecture:</strong> S3 (static frontend) • API Gateway (REST + WebSocket) • Lambda (Node.js) • DynamoDB (top-N leaderboard with GSI) • CloudWatch (monitoring & alarms) • WAF (rate limiting) • GitHub Actions + Terraform
+        <strong>Architecture:</strong> S3 (static frontend) • API Gateway (REST + WebSocket) • Lambda (Node.js) • DynamoDB (GSI for top-N rankings) • CloudWatch (monitoring & alarms) • WAF (rate limiting) • GitHub Actions + Terraform
       </p>
       <div class="meta">
         <a href="https://github.com/DJT6/CloudGameLeaderboard" target="_blank">Code</a>
-      </div>
-    </article>
-
-    <article>
-      <h2>Serverless Contact Form Application</h2>
-      <p>
-        A lightweight contact form application designed to be simple, reliable, and cost-free to operate. It uses serverless components to process submissions, block spam, and automate data cleanup. Notifications are sent in real time, and the architecture requires no manual management, making it ideal for personal websites or small-scale business deployments.
-      </p>
-      <p>
-        <strong>Architecture:</strong> API Gateway → Lambda → DynamoDB (TTL cleanup) → S3 + SNS • WAF • CloudWatch • GitHub Actions + Terraform
-      </p>
-      <div class="meta">
-        <a href="https://github.com/DJT6/ServerlessContactForm" target="_blank">Code</a>
       </div>
     </article>
 
