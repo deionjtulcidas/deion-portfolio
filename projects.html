@@ -13,12 +13,12 @@
     <h1>Projects</h1>
 
     <article>
-      <h2>Containerized Threat Detection & Response Platform</h2>
+      <h2>Lightweight Web App Migration & Modernization Platform</h2>
       <p>
-        A scalable, containerized security detection pipeline designed to identify and respond to suspicious activity in real time with near-zero idle cost. Logs are ingested, processed, and analyzed through a lightweight Kubernetes stack, triggering alerts and automated blocking when anomalies are detected. This project showcases container orchestration, real-time security response, and cost-optimized infrastructure.
+        A zero-downtime migration simulation that moves a legacy on-premises web application to AWS and modernizes it into a serverless and containerized architecture. This project showcases a practical cloud migration lifecycle — from lift-and-shift to modernization — while staying fully within the free tier. It demonstrates containerization, DNS cutover, real-time observability, and cost-efficient infrastructure design.
       </p>
       <p>
-        <strong>Architecture:</strong> S3 (log ingestion) • SQS (buffering) • EC2 (K3s Kubernetes cluster) • Docker (services) • Fluent Bit (log ingestion) • Python ML service (anomaly detection) • SNS (alerting) • WAF (response automation) • Prometheus + Grafana (monitoring) • GitHub Actions + Terraform
+        <strong>Architecture:</strong> Local Docker (legacy app) • ECR (container registry) • EC2 (initial deployment) • S3 + CloudFront (static assets) • DynamoDB (data layer) • ECS (container orchestration) • Route 53 (DNS cutover) • WAF (security) • CloudWatch + Prometheus + Grafana (monitoring) • GitHub Actions + Terraform
       </p>
       <div class="meta">
         <a href="#" target="_blank">Code</a>
@@ -39,18 +39,17 @@
     </article>
 
     <article>
-      <h2>Cloud-Based Appointment Management System</h2>
+      <h2>Containerized Threat Detection & Response Platform</h2>
       <p>
-        A production-grade appointment booking platform showcasing a secure and scalable AWS stack. It integrates authentication, monitoring, cost control, and automated CI/CD deployments. Designed for high availability, zero idle cost, and fast recovery, it reflects best practices for real-world, business-critical applications.
+        A scalable, containerized security detection pipeline designed to identify and respond to suspicious activity in real time with near-zero idle cost. Logs are ingested, processed, and analyzed through a lightweight Kubernetes stack, triggering alerts and automated blocking when anomalies are detected. This project showcases container orchestration, real-time security response, and cost-optimized infrastructure.
       </p>
       <p>
-        <strong>Architecture:</strong> S3 + CloudFront (HTTPS) • API Gateway + Lambda (Node.js) • DynamoDB (conditional writes) • Cognito (auth) • CloudWatch (logs, alarms) • WAF + KMS • GitHub Actions + Terraform
+        <strong>Architecture:</strong> S3 (log ingestion) • SQS (buffering) • EC2 (K3s Kubernetes cluster) • Docker (services) • Fluent Bit (log ingestion) • Python ML service (anomaly detection) • SNS (alerting) • WAF (response automation) • Prometheus + Grafana (monitoring) • GitHub Actions + Terraform
       </p>
       <div class="meta">
-        <a href="https://github.com/DJT6/HealthcareAppointmentApp" target="_blank">Code</a>
+        <a href="#" target="_blank">Code</a>
       </div>
     </article>
-
 
     <article>
       <h2>Cloud Game Leaderboard</h2>
