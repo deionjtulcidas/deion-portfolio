@@ -127,3 +127,23 @@ footer {
     font-size: 0.95rem;
   }
 }
+.cert-strip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cert-badge {
+  width: 60px;
+  height: auto;
+}
+
+.cert-arrow {
+  font-size: 1.8rem;
+  color: #0070f3;
+}
+
+.cert-badge.upcoming {
+  opacity: 0.4;
+  filter: grayscale(100%);
+}
