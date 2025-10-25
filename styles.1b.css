@@ -18,16 +18,18 @@ body {
 }
 
 main {
-  max-width: 650px;
+  max-width: 700px;
   width: 100%;
-  text-align: left;
+  text-align: center;
 }
 
+/* PROFILE ROW */
 .profile-row {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   gap: 20px;
+  flex-wrap: wrap;
   margin-bottom: 1.8rem;
 }
 
@@ -39,7 +41,7 @@ main {
 }
 
 .pitt-logo {
-  width: 120px;
+  width: 90px;
   height: auto;
   opacity: 0.85;
   filter: grayscale(20%);
@@ -49,6 +51,31 @@ main {
 .pitt-logo:hover {
   opacity: 1;
   filter: grayscale(0%);
+}
+
+/* CERT STRIP */
+.cert-strip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cert-badge {
+  width: 80px;
+  height: auto;
+  object-fit: contain;
+}
+
+.cert-arrow {
+  font-size: 1.8rem;
+  color: #0070f3;
+}
+
+.cert-badge.upcoming {
+  opacity: 0.4;
+  filter: grayscale(100%);
 }
 
 h1 {
@@ -64,6 +91,7 @@ h1 {
   margin-bottom: 1.6rem;
 }
 
+/* LINKS */
 a {
   color: #0070f3;
   text-decoration: none;
@@ -84,10 +112,9 @@ a:hover {
   font-size: 1.05rem;
 }
 
-/* socialsss */
 .socials {
   display: flex;
-  align-items: center;
+  justify-content: center;
   gap: 14px;
   margin-top: 1rem;
   font-size: 1rem;
@@ -104,9 +131,10 @@ footer {
   text-align: center;
 }
 
+/* RESPONSIVE */
 @media (max-width: 600px) {
   .profile-row {
-    flex-direction: row;
+    justify-content: center;
     gap: 12px;
   }
 
@@ -119,6 +147,10 @@ footer {
     width: 65px;
   }
 
+  .cert-badge {
+    width: 60px;
+  }
+
   h1 {
     font-size: 1.6rem;
   }
@@ -126,24 +158,4 @@ footer {
   .bio {
     font-size: 0.95rem;
   }
-}
-.cert-strip {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.cert-badge {
-  width: 60px;
-  height: auto;
-}
-
-.cert-arrow {
-  font-size: 1.8rem;
-  color: #0070f3;
-}
-
-.cert-badge.upcoming {
-  opacity: 0.4;
-  filter: grayscale(100%);
 }
