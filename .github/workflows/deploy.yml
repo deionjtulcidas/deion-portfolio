@@ -1,19 +1,14 @@
 name: Deploy Static Website
-
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          lfs: true
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -22,7 +17,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Sync website files to S3
+      - name: Upload site to S3
         run: |
           aws s3 sync . s3://${{ secrets.S3_BUCKET_NAME }} \
             --delete \
@@ -30,10 +25,10 @@ jobs:
             --exclude ".github/*" \
             --exact-timestamps
 
-      - name: Fix MP4 content type
+      - name: Fix MP4 metadata
         run: |
           for key in $(aws s3api list-objects-v2 --bucket ${{ secrets.S3_BUCKET_NAME }} --query "Contents[?ends_with(Key, '.mp4')].Key" --output text); do
-            echo "Fixing $key ..."
+            echo "Fixing $key"
             aws s3 cp s3://${{ secrets.S3_BUCKET_NAME }}/$key s3://${{ secrets.S3_BUCKET_NAME }}/$key \
               --metadata-directive REPLACE \
               --content-type video/mp4
