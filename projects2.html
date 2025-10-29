@@ -1,4 +1,4 @@
-<!doctype html>
+=<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -7,7 +7,51 @@
   <meta name="description" content="Older AWS Cloud & DevOps Projects by Deion Jose Tulcidas">
   <link rel="icon" type="image/png" href="deion.png">
   <link rel="stylesheet" href="projects.css">
+  <style>
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      position: relative;
+      background: #000;
+      border-radius: 10px;
+      padding: 0;
+      width: 80%;
+      max-width: 800px;
+    }
+    video {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 16px;
+      color: #fff;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    .meta a.live-demo {
+      color: #007bff;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .meta a.live-demo:hover {
+      color: #00bfff;
+      text-decoration: underline;
+    }
+  </style>
 </head>
+
 <body>
   <main>
     <h1>Older Projects</h1>
@@ -15,53 +59,45 @@
     <article>
       <h2>Pitt Panthers Cloud Leaderboard (Pre Terraform)</h2>
       <p>
-        Early serverless leaderboard built on AWS to handle real-time score submissions. This project was where I solved key infrastructure pain points for the first time, like API Gateway integration issues and persistent CORS headaches. It laid the groundwork for understanding how to build reliable client-to-backend communication in a fully serverless stack and prepared me for Infrastructure as Code adoption.
+        Early serverless leaderboard built on AWS to handle real-time score submissions...
       </p>
-      <p>
-        <strong>Architecture:</strong> S3 • API Gateway • Lambda • DynamoDB • HTML/JS
-      </p>
+      <p><strong>Architecture:</strong> S3 • API Gateway • Lambda • DynamoDB • HTML/JS</p>
       <div class="meta">
         <a href="https://github.com/deionjtulcidas/CloudGameLeaderboard" target="_blank">Code</a>
-        <a href="#" target="_blank">Live Demo</a>
+        <a href="#" class="live-demo" data-video="videos/leaderboard.mp4">Live Demo</a>
       </div>
     </article>
 
     <article>
       <h2>Cloud Appointment System</h2>
       <p>
-        Full-stack appointment scheduling platform simulating a healthcare scenario. This was my first serious multi-tier cloud build with frontend, backend, and DNS integration. I implemented automated deployments, monitoring, and a secure networking layer, which gave me hands-on experience with CI/CD pipelines and managing distributed services. This project bridged the gap between basic deployments and production-grade infrastructure.
+        Full-stack appointment scheduling platform simulating a healthcare scenario...
       </p>
-      <p>
-        <strong>Architecture:</strong> S3 + CloudFront • EC2 + Nginx • DynamoDB • Route 53 • CloudWatch • GitHub Actions
-      </p>
+      <p><strong>Architecture:</strong> S3 + CloudFront • EC2 + Nginx • DynamoDB • Route 53 • CloudWatch • GitHub Actions</p>
       <div class="meta">
         <a href="https://github.com/deionjtulcidas/HealthcareAppointmentApp" target="_blank">Code</a>
-        <a href="#" target="_blank">Live Demo</a>
+        <a href="#" class="live-demo" data-video="videos/appointment.mp4">Live Demo</a>
       </div>
     </article>
 
     <article>
       <h2>Serverless Contact Form</h2>
       <p>
-        Event-driven contact form pipeline designed to handle incoming submissions in real time without maintaining servers. Beyond just building a form, I focused on event processing, alerting, and observability. This project helped me understand serverless event flows, operational visibility, and the importance of designing for scale from the start.
+        Event-driven contact form pipeline designed to handle incoming submissions...
       </p>
-      <p>
-        <strong>Architecture:</strong> API Gateway • Lambda • DynamoDB • S3 • SNS • CloudWatch
-      </p>
+      <p><strong>Architecture:</strong> API Gateway • Lambda • DynamoDB • S3 • SNS • CloudWatch</p>
       <div class="meta">
         <a href="https://github.com/deionjtulcidas/ServerlessContactForm" target="_blank">Code</a>
-        <a href="#" target="_blank">Live Demo</a>
+        <a href="#" class="live-demo" data-video="videos/contactform.mp4">Live Demo</a>
       </div>
     </article>
 
     <article>
       <h2>Static Website Deployment</h2>
       <p>
-        My first hands-on cloud project. I deployed a static website using AWS services to learn the fundamentals of cloud hosting, content delivery, and optional domain configuration. This project gave me a practical foundation for understanding global distribution, caching, and cost-efficient deployment strategies.
+        My first hands-on cloud project. I deployed a static website using AWS...
       </p>
-      <p>
-        <strong>Architecture:</strong> S3 • CloudFront • HTML/CSS/JS
-      </p>
+      <p><strong>Architecture:</strong> S3 • CloudFront • HTML/CSS/JS</p>
       <div class="meta">
         <a href="https://github.com/deionjtulcidas/AWSWebsite" target="_blank">Code</a>
       </div>
@@ -69,8 +105,50 @@
 
     <nav class="nav-links">
       <a href="projects.html">← Back to Projects</a>
-      <a href="index.html"> Home</a>
+      <a href="index.html">Home</a>
     </nav>
   </main>
+
+  <div id="videoModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <video id="demoVideo" controls>
+        <source src="" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('videoModal');
+    const video = document.getElementById('demoVideo');
+    const closeBtn = document.querySelector('.close');
+    const liveDemos = document.querySelectorAll('.live-demo');
+
+    liveDemos.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const videoSrc = link.getAttribute('data-video');
+        video.querySelector('source').src = videoSrc;
+        video.load();
+        modal.style.display = 'flex';
+        video.play();
+      });
+    });
+
+    closeBtn.onclick = () => {
+      modal.style.display = 'none';
+      video.pause();
+      video.currentTime = 0;
+    };
+
+    window.onclick = e => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        video.pause();
+        video.currentTime = 0;
+      }
+    };
+  </script>
 </body>
 </html>
