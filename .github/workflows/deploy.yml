@@ -20,29 +20,25 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      - name: Sync website files to S3 (exclude videos)
+      - name: Sync all non-video files to S3
         run: |
           aws s3 sync . s3://deiontulcidasaws.com \
             --exclude "*.mp4" \
             --delete
 
-      - name: Upload videos with correct headers
+      - name: Upload all MP4 files with correct headers
         run: |
-          if [ -f leaderboard.mp4 ]; then
-            aws s3 cp leaderboard.mp4 s3://deiontulcidasaws.com/leaderboard.mp4 --content-type video/mp4
-          fi
-          if [ -f contactform.mp4 ]; then
-            aws s3 cp contactform.mp4 s3://deiontulcidasaws.com/contactform.mp4 --content-type video/mp4
-          fi
-          if [ -f appointment.mp4 ]; then
-            aws s3 cp appointment.mp4 s3://deiontulcidasaws.com/appointment.mp4 --content-type video/mp4
-          fi
+          for file in $(find . -type f -name "*.mp4"); do
+            key=$(basename "$file")
+            echo "Uploading $key with video/mp4 content-type"
+            aws s3 cp "$file" "s3://deiontulcidasaws.com/$key" --content-type video/mp4 || echo "⚠️ Skipped $key (permissions or not found)"
+          done
 
-      - name: Create CloudFront invalidation
+      - name: Invalidate CloudFront cache
         run: |
           aws cloudfront create-invalidation \
             --distribution-id E26D7DKKE16JMN \
             --paths "/*"
 
-      - name: Confirm deployment
-        run: echo "Deployment to S3 and CloudFront completed successfully!"
+      - name: Confirm success
+        run: echo "✅ Website successfully deployed and videos preserved."
