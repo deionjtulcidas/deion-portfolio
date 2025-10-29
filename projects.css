@@ -71,3 +71,16 @@ nav a:hover {
 article {
   margin-bottom: 2.8rem;
 }
+
+.meta a {
+  margin-right: 1rem;
+  text-decoration: none;
+  color: #0073e6;
+  font-weight: bold;
+}
+
+.meta a:hover {
+  text-decoration: underline;
+}
+
+
