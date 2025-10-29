@@ -1,35 +1,48 @@
 name: Deploy Static Website
+
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          aws-region: us-east-1
 
-      - name: Upload site to S3
+      - name: Sync website files to S3 (exclude videos)
         run: |
-          aws s3 sync . s3://${{ secrets.S3_BUCKET_NAME }} \
-            --delete \
-            --exclude ".git/*" \
-            --exclude ".github/*" \
-            --exact-timestamps
+          aws s3 sync . s3://deiontulcidasaws.com \
+            --exclude "*.mp4" \
+            --delete
 
-      - name: Fix MP4 metadata
+      - name: Upload videos with correct headers
         run: |
-          for key in $(aws s3api list-objects-v2 --bucket ${{ secrets.S3_BUCKET_NAME }} --query "Contents[?ends_with(Key, '.mp4')].Key" --output text); do
-            echo "Fixing $key"
-            aws s3 cp s3://${{ secrets.S3_BUCKET_NAME }}/$key s3://${{ secrets.S3_BUCKET_NAME }}/$key \
-              --metadata-directive REPLACE \
-              --content-type video/mp4
-          done
+          if [ -f leaderboard.mp4 ]; then
+            aws s3 cp leaderboard.mp4 s3://deiontulcidasaws.com/leaderboard.mp4 --content-type video/mp4
+          fi
+          if [ -f contactform.mp4 ]; then
+            aws s3 cp contactform.mp4 s3://deiontulcidasaws.com/contactform.mp4 --content-type video/mp4
+          fi
+          if [ -f appointment.mp4 ]; then
+            aws s3 cp appointment.mp4 s3://deiontulcidasaws.com/appointment.mp4 --content-type video/mp4
+          fi
+
+      - name: Create CloudFront invalidation
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id E26D7DKKE16JMN \
+            --paths "/*"
+
+      - name: Confirm deployment
+        run: echo "Deployment to S3 and CloudFront completed successfully!"
