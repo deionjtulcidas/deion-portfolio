@@ -2,8 +2,7 @@ name: Deploy Static Website
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   deploy:
@@ -22,24 +21,57 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Sync website files to S3
+      - name: Sync website to S3
         run: |
-          aws s3 sync ./ s3://${{ secrets.S3_BUCKET_NAME }} \
+          aws s3 sync . s3://${{ secrets.S3_BUCKET_NAME }} \
             --delete \
             --exclude ".git/*" \
             --exclude ".github/*" \
             --exact-timestamps
 
-      - name: Fix Content-Type for MP4 videos
+      - name: Normalize MP4 metadata on S3
+        env:
+          BUCKET: ${{ secrets.S3_BUCKET_NAME }}
         run: |
-          aws s3 sync ./ s3://${{ secrets.S3_BUCKET_NAME }} \
-            --exclude "*" \
-            --include "videos/*.mp4" \
-            --metadata-directive REPLACE \
-            --content-type "video/mp4"
+          set -e
+          KEYS=$(aws s3api list-objects-v2 --bucket "$BUCKET" \
+            --query 'Contents[?ends_with(Key, `.mp4`)].Key' --output text)
+
+          if [ -z "$KEYS" ]; then
+            echo "No MP4 files found in bucket $BUCKET"
+          else
+            for k in $KEYS; do
+              echo "Fixing metadata for: $k"
+              aws s3api copy-object \
+                --bucket "$BUCKET" \
+                --copy-source "$BUCKET/$k" \
+                --key "$k" \
+                --metadata-directive REPLACE \
+                --content-type "video/mp4" \
+                --cache-control "public,max-age=31536000,immutable"
+            done
+          fi
+
+      - name: Verify MP4s (headers and size)
+        env:
+          BUCKET: ${{ secrets.S3_BUCKET_NAME }}
+        run: |
+          set -e
+          KEYS=$(aws s3api list-objects-v2 --bucket "$BUCKET" \
+            --query 'Contents[?ends_with(Key, `.mp4`)].Key' --output text)
+          EXIT=0
+          for k in $KEYS; do
+            CT=$(aws s3api head-object --bucket "$BUCKET" --key "$k" --query 'ContentType' --output text)
+            SZ=$(aws s3api head-object --bucket "$BUCKET" --key "$k" --query 'ContentLength' --output text)
+            echo "$k  ContentType=$CT  Size=$SZ"
+            # Guard against LFS pointer (tiny file) or wrong type
+            if [ "$CT" != "video/mp4" ]; then EXIT=1; fi
+            if [ "$SZ" -lt 100000 ]; then EXIT=1; fi
+          done
+          exit $EXIT
 
       - name: Invalidate CloudFront cache
         run: |
           aws cloudfront create-invalidation \
             --distribution-id ${{ secrets.CLOUDFRONT_DIST_ID }} \
-            --paths "/*"
+            --paths "/projects*.html" "/videos/*"
