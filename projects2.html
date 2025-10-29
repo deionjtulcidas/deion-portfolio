@@ -20,11 +20,22 @@
       border: none;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     }
+    pre {
+      background: #111;
+      color: #0f0;
+      padding: 15px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-family: monospace;
+      font-size: 0.9rem;
+      max-width: 700px;
+    }
     .meta a.live-demo {
       color: #007bff;
       font-weight: 600;
       transition: all 0.2s ease;
       cursor: pointer;
+      margin-right: 10px;
     }
     .meta a.live-demo:hover {
       color: #00bfff;
@@ -59,6 +70,7 @@
       <div class="meta">
         <a href="https://github.com/deionjtulcidas/HealthcareAppointmentApp" target="_blank">Code</a>
         <a class="live-demo" data-video="https://www.youtube.com/embed/_fhUVWKTYOQ">Live Demo</a>
+        <a class="live-demo code-demo" data-code="true">Live Demo 2</a>
       </div>
       <div class="video-box"></div>
     </article>
@@ -95,21 +107,44 @@
 
   <script>
     const liveDemos = document.querySelectorAll('.live-demo');
+
     liveDemos.forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
-        const videoUrl = link.getAttribute('data-video');
-        const videoBox = link.closest('article').querySelector('.video-box');
+        const article = link.closest('article');
+        const videoBox = article.querySelector('.video-box');
         const isVisible = videoBox.style.display === 'block';
 
-        // toggle visibility
         document.querySelectorAll('.video-box').forEach(box => {
           box.innerHTML = '';
           box.style.display = 'none';
         });
 
         if (!isVisible) {
-          videoBox.innerHTML = `<iframe src="${videoUrl}" allowfullscreen></iframe>`;
+          if (link.dataset.code === 'true') {
+            videoBox.innerHTML = `<pre>
+// Example Terraform block lol
+resource "aws_instance" "app_server" {
+  ami           = "ami-0c55b159cbfafe1f0"
+  instance_type = "t3.micro"
+
+  tags = {
+    Name = "AppointmentAppServer"
+  }
+}
+
+// Example backend integration
+resource "aws_s3_bucket" "frontend_bucket" {
+  bucket = "appointment-app-frontend"
+  website {
+    index_document = "index.html"
+  }
+}
+            </pre>`;
+          } else {
+            const videoUrl = link.getAttribute('data-video');
+            videoBox.innerHTML = `<iframe src="${videoUrl}" allowfullscreen></iframe>`;
+          }
           videoBox.style.display = 'block';
         }
       });
