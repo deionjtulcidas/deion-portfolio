@@ -76,6 +76,28 @@
       <div class="video-box"></div>
     </article>
 
+      <script>
+    const liveDemos = document.querySelectorAll('.live-demo');
+    liveDemos.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const videoUrl = link.getAttribute('data-video');
+        const videoBox = link.closest('article').querySelector('.video-box');
+        const isVisible = videoBox.style.display === 'block';
+
+        document.querySelectorAll('.video-box').forEach(box => {
+          box.innerHTML = '';
+          box.style.display = 'none';
+        });
+
+        if (!isVisible) {
+          videoBox.innerHTML = `<iframe src="${videoUrl}" allowfullscreen></iframe>`;
+          videoBox.style.display = 'block';
+        }
+      });
+    });
+  </script>
+
 
 <nav>
   <a href="index.html">← Home</a>
@@ -85,6 +107,7 @@
   </main>
 </body>
 </html>
+
 
 
 
