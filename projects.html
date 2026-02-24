@@ -39,7 +39,7 @@
     <article>
   <h2>Serverless Security Log Detection and Alerting Pipeline</h2>
   <p>
-    A fully serverless, intelligent detection pipeline built to process and analyze security logs in real time. Using AWS Lambda for anomaly detection and automated response, the system identifies suspicious activity, publishes alerts through Amazon SNS, Designed for operational automation, security integration, and pay-per-use efficiency.
+    A fully serverless, event-driven monitoring pipeline designed to ingest, process, and analyze security and application logs in real time. Using AWS Lambda for log preprocessing and detection logic, the system monitors for error conditions and suspicious activity, triggering automated alerts through Amazon SNS. Built to support operational visibility, incident response workflows, and cloud-native monitoring best practices.
   </p>
   <p>
     <strong>Architecture:</strong> Amazon S3 (log storage) • Kinesis Data Firehose (streaming ingestion) • AWS Lambda (log preprocessing + detection logic) • Amazon SNS (alerting) • Amazon CloudWatch (monitoring) • GitHub Actions + Terraform (CI/CD + IaC)
@@ -79,6 +79,7 @@
   </main>
 </body>
 </html>
+
 
 
 
