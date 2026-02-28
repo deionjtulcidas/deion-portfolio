@@ -7,93 +7,83 @@
   <meta name="description" content="AWS Cloud & DevOps Projects by Deion Jose Tulcidas">
   <link rel="icon" type="image/png" href="deion.png">
   <link rel="stylesheet" href="projects.css">
-</head>
-    <style>
-    .video-box {
-      display: none;
-      margin-top: 15px;
-    }
-    iframe {
-      width: 100%;
-      max-width: 700px;
-      height: 400px;
-      border-radius: 10px;
-      border: none;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    }
-    .meta a.live-demo {
+
+  <style>
+    .meta a {
       color: #007bff;
       font-weight: 600;
       transition: all 0.2s ease;
-      cursor: pointer;
-      margin-right: 10px;
+      text-decoration: none;
     }
-    .meta a.live-demo:hover {
+
+    .meta a:hover {
       color: #00bfff;
       text-decoration: underline;
     }
   </style>
+</head>
+
 <body>
   <main>
     <h1>Projects</h1>
+
     <article>
       <h2>Kubernetes-Based Scalable Application Platform</h2>
-<p>
-A containerized backend application deployed to a local Kubernetes cluster to simulate migration from a single-server deployment to a scalable, self-healing environment. The project demonstrates replica management, rolling updates, liveness and readiness probes, and horizontal pod autoscaling to support high availability and controlled, zero-downtime deployments.</p>
-<p>
-  <p> Built to showcase practical Kubernetes workload management, configuration externalization using ConfigMaps, and operational resilience within a local cluster setup.</p>
-  <strong>Architecture:</strong> Docker (containerization) • Kubernetes (Deployment, Service, HPA, PodDisruptionBudget) • ConfigMaps (configuration management) • kubectl (cluster operations) • kind (local cluster)
-</p>
-<div class="meta">
-  <a href="https://github.com/deionjtulcidas/kubernetes-scalable-platform" target="_blank">Code</a>
-  </div>
-  <h2>Serverless Security Log Detection and Alerting Pipeline</h2>
-  <p>
-    A fully serverless, event-driven monitoring pipeline designed to ingest, process, and analyze security and application logs in real time. Using AWS Lambda for log preprocessing and detection logic, the system monitors for error conditions and suspicious activity, triggering automated alerts through Amazon SNS. Built to support operational visibility, incident response workflows, and cloud-native monitoring best practices.
-  </p>
-  <p>
-    <strong>Architecture:</strong> Amazon S3 (log storage) • Kinesis Data Firehose (streaming ingestion) • AWS Lambda (log preprocessing + detection logic) • Amazon SNS (alerting) • Amazon CloudWatch (monitoring) • GitHub Actions + Terraform (CI/CD + IaC)
-  </p>
-  <div class="meta">
-    <a href="https://github.com/deionjtulcidas/ai-log-detection" target="_blank">Code</a>
-  </div>
-</article>
-      <script>
-    const liveDemos = document.querySelectorAll('.live-demo');
-    liveDemos.forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const videoUrl = link.getAttribute('data-video');
-        const videoBox = link.closest('article').querySelector('.video-box');
-        const isVisible = videoBox.style.display === 'block';
 
-        document.querySelectorAll('.video-box').forEach(box => {
-          box.innerHTML = '';
-          box.style.display = 'none';
-        });
+      <p>
+        A containerized backend application deployed to a local Kubernetes cluster to simulate migration from a single-server deployment to a scalable, self-healing environment. The project demonstrates replica management, rolling updates, liveness and readiness probes, and horizontal pod autoscaling to support high availability and controlled, zero-downtime deployments.
+      </p>
 
-        if (!isVisible) {
-          videoBox.innerHTML = `<iframe src="${videoUrl}" allowfullscreen></iframe>`;
-          videoBox.style.display = 'block';
-        }
-      });
-    });
-  </script>
+      <p>
+        Built to showcase practical Kubernetes workload management, configuration externalization using ConfigMaps, and operational resilience within a local cluster setup.
+      </p>
 
+      <p>
+        <strong>Architecture:</strong>
+        Docker (containerization) • Kubernetes (Deployment, Service, HPA, PodDisruptionBudget) •
+        ConfigMaps (configuration management) • kubectl (cluster operations) • kind (local cluster)
+      </p>
 
-<nav>
-  <a href="index.html">← Home</a>
-  <a href="projects2.html">Older Projects →</a>
-</nav>
+      <div class="meta">
+        <a href="https://github.com/deionjtulcidas/kubernetes-scalable-platform" target="_blank">
+          Code
+        </a>
+      </div>
+    </article>
+
+    <article>
+      <h2>Serverless Security Log Detection and Alerting Pipeline</h2>
+
+      <p>
+        A fully serverless, event-driven monitoring pipeline designed to ingest, process, and analyze security and application logs in real time. Using AWS Lambda for log preprocessing and detection logic, the system monitors for error conditions and suspicious activity, triggering automated alerts through Amazon SNS.
+      </p>
+
+      <p>
+        Built to support operational visibility, incident response workflows, and cloud-native monitoring best practices.
+      </p>
+
+      <p>
+        <strong>Architecture:</strong>
+        Amazon S3 (log storage) • Kinesis Data Firehose (streaming ingestion) •
+        AWS Lambda (log preprocessing + detection logic) • Amazon SNS (alerting) •
+        Amazon CloudWatch (monitoring) • GitHub Actions + Terraform (CI/CD + IaC)
+      </p>
+
+      <div class="meta">
+        <a href="https://github.com/deionjtulcidas/ai-log-detection" target="_blank">
+          Code
+        </a>
+      </div>
+    </article>
+
+    <nav>
+      <a href="index.html">← Home</a>
+      <a href="projects2.html">Older Projects →</a>
+    </nav>
 
   </main>
 </body>
 </html>
-
-
-
-
-
 
 
 
