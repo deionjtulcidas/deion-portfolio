@@ -28,6 +28,38 @@
     <h1>Projects</h1>
 
     <article>
+  <h2>AWS Failure Case Lab</h2>
+
+  <p>
+    A Terraform-provisioned cloud environment engineered to simulate real-world AWS infrastructure failures and practice structured incident response across distributed systems. The lab focuses on reproducing  production-style outages spanning networking, IAM, compute, and storage layers, requiring systematic  investigation using logs, metrics, and command-line diagnostics.
+  </p>
+
+  <p>
+    Built to develop operational readiness through controlled fault injection, hypothesis-driven troubleshooting, and documented root cause analysis. Each scenario is intentionally introduced, detected through monitoring 
+    signals, resolved with validated remediation steps, and formalized in a postmortem-style incident report 
+    to mirror real SRE and DevOps workflows.
+  </p>
+
+  <p>
+    <strong>Architecture:</strong>
+    Terraform (infrastructure as code + failure injection controls) •
+    Amazon VPC (subnets, route tables, security groups) •
+    EC2 (application layer) •
+    RDS (database tier) •
+    IAM (least-privilege access control) •
+    S3 (object storage) •
+    CloudWatch (logs, metrics, alarms, dashboards) •
+    AWS CLI (live diagnostics and verification)
+  </p>
+
+  <div class="meta">
+    <a href="https://github.com/your-repo-link" target="_blank">
+      Code
+    </a>
+  </div>
+</article>
+
+    <article>
       <h2>Kubernetes-Based Scalable Application Platform</h2>
 
       <p>
@@ -84,6 +116,7 @@
   </main>
 </body>
 </html>
+
 
 
 
